@@ -64,6 +64,9 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
+plugins:
+  hexo-generator-feed
+  hexo-generator-sitemap
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -78,3 +81,21 @@ avatar: /images/figure.jpg
 # 评论
 disqus_shortname: coderdr31
 
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
+
+# plugins config
+sitemap:
+    path: sitemap.xml
+## Feed Atom
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
+
+
+baidusitemap:
+    path: baidusitemap.xml

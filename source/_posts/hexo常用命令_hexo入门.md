@@ -58,10 +58,56 @@ tag_map:
 
 
 # hexo 入门
+## hexo、next 插件、第三方服务
+**主要是hexo、next官网的第三方服务**
+### 添加Sitemap
+[我没配完，全步骤点此链接](http://zhiho.github.io/2015/09/29/hexo-next/)
+1. 安装
+```
+$ npm install hexo-generator-sitemap --save
+```
+2. 修改站点配置文件
+```
+plugins:
+  hexo-generator-feed
+  hexo-generator-sitemap
+sitemap:
+    path: sitemap.xml
+```
+3. 如果执行hexo g命令无法生成sitemap.xml文件，执行以下命令：
+```
+$ npm uninstall hexo-generator-sitemap    #观察发现博客根目录下的package.json文件中dependencies并没有sitemap插件的依赖，卸载
+$ npm install hexo-generator-sitemap --save   #安装sitemap插件时，加上- -save参数
+```
+
+### 添加RSS
+1. 安装RSS插件
+> npm install hexo-generator-feed --save
+
+2. 开启网站 RSS 支持
+
+编辑网站根目录下的 _config.yml，添加
+```
+# RSS订阅支持
+plugin:
+- hexo-generator-feed
+
+# Feed Atom
+feed:
+type: atom
+path: atom.xml
+limit: 20
+```
+
+3. 主题开启 RSS 支持
+NexT 主题，默认就可以；其他主题请参考主题说明。
+
+
 ## 主目录介绍
 **_config.yml**: 全局配置文件，网站的很多信息都在这里配置，诸如网站名称，副标题，描述，作者，语言，主题，部署等等参数。这个文件下面会做较为详细的介绍。<br>
 **package.json**: hexo框架的参数和所依赖插件<br>
 **scaffolds**: scaffolds是“脚手架、骨架”的意思，当你新建一篇文章（hexo new 'title'）的时候，hexo是根据这个目录下的文件进行构建的。基本不用关心。<br>
 **source**: 这个目录很重要，新建的文章都是在保存在这个目录下的.<br>
 **_posts**: 需要新建的博文都放在 _posts 目录下。_posts 目录下的md文件，会被编译成html文件，放到 public （此文件现在应该没有，因为你还没有编译过）文件夹下。<br>
-**themes**:网站主题目录，hexo有非常好的主题拓展，支持的主题也很丰富。该目录下，每一个子目录就是一个主题 <br>
+**themes**: 网站主题目录，hexo有非常好的主题拓展，支持的主题也很丰富。该目录下，每一个子目录就是一个主题 <br>
+
